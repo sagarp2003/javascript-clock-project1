@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js clock project</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(92, 37, 246);
+            color: white;
+
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .clock-container {
+            text-align: center;
+            font-size: 48px;
+            border: 2px solid white;
+            border-radius: 40px;
+            background-color: rgb(51, 31, 125);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock-container">
+        <h1 class="clock">00:00:00</h1>
+    </div>
+    <audio src="./com.mp3"></audio>
+    <script>
+
+        // const element =document.querySelector('.clock')
+        // const time=new Date();
+        // const option ={
+        //     timeZone:'Asia/Kolkata',
+        //     hour:'2-digit',
+        //     minute:'2-digit',
+        //     second:'2-digit'
+
+        // }
+        // element.textContent=time.toLocaleTimeString('en-US',option)
+        setInterval(() => {
+            const element = document.querySelector('.clock')
+            const sound = document.querySelector('audio')
+            const time = new Date();
+            const option = {
+                timeZone: 'Asia/Kolkata',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+
+            }
+            element.textContent = time.toLocaleTimeString('en-US', option)
+            sound.play();
+        }, 1000);
+    </script>
+</body>
+
+</html>
